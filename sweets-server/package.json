@@ -16,9 +16,11 @@
   "type": "commonjs",
   "dependencies": {
     "@jest/types": "^30.0.5",
+    "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/supertest": "^6.0.3",
+    "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
