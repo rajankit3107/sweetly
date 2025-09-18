@@ -43,4 +43,5 @@ export async function login(username: string, password: string) {
     JWT_SECRET,
     { expiresIn: JWT_EXPIRY } as SignOptions
   );
+  return { token };
 }
