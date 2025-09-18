@@ -18,7 +18,7 @@ afterAll(async () => {
   if (mongo) await mongo.stop();
 });
 
-afterEach(async () => {
+beforeEach(async () => {
   const collections = await mongoose.connection.db?.collections();
   if (!collections) return;
 

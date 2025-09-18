@@ -5,7 +5,7 @@ import { User } from "../models/user.model";
 describe("Auth Tests", () => {
   it(`registers a user`, async () => {
     const res = await request(app)
-      .post(`api/auth/register`)
+      .post(`/api/auth/register`)
       .send({ username: `ankit`, password: `123456` });
 
     expect(res.status).toBe(201);
@@ -25,7 +25,7 @@ describe("Auth Tests", () => {
     //cheking duplicate -
     const res = await request(app)
       .post(`/api/auth/register`)
-      .send({ username: `ishang`, passowrd: `123456` });
+      .send({ username: `ishang`, password: `123456` });
 
     expect(res.status).toBe(400);
     expect(res.body).toHaveProperty(`message`, `Username already taken`);
@@ -38,7 +38,7 @@ describe("Auth Tests", () => {
 
     const res = await request(app)
       .post(`/api/auth/login`)
-      .send({ username: `aryan`, password: `123456` });
+      .send({ username: `aryan`, password: `1233456` });
 
     expect(res.status).toBe(200);
     expect(res.body).toHaveProperty(`token`);
@@ -56,7 +56,7 @@ describe("Auth Tests", () => {
 
   it(`rejects short password on register`, async () => {
     const res = await request(app)
-      .post(`/api/auth/login`)
+      .post(`/api/auth/register`)
       .send({ username: `tiny`, password: `123` });
 
     expect(res.status).toBe(400);

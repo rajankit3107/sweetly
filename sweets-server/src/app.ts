@@ -1,5 +1,6 @@
 import express from "express";
 import authRoutes from "./routes/authRoutes";
+import { ApiError } from "./utils/apiError";
 
 const app = express();
 

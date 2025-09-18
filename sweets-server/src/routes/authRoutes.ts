@@ -8,4 +8,4 @@ const router = Router();
 router.post("/register", validateBody(registerSchema), register);
 router.post("/login", validateBody(loginSchema), login);
 
-export default Router;
+export default router;
