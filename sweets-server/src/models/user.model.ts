@@ -8,7 +8,7 @@ export interface IUser extends Document {
   role: Role;
 }
 
-const UserSchema = new Schema(
+const UserSchema = new Schema<IUser>(
   {
     username: {
       type: String,
