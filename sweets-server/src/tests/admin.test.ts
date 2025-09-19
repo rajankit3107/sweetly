@@ -30,7 +30,7 @@ describe("Admin Routes", () => {
       .set("Authorization", `Bearer ${adminToken}`)
       .send({ name: "jalebi", category: "Indian", price: 15, quantity: 10 });
     expect(res.status).toBe(201);
-    expect(res.body).toHaveProperty("name", "jalebi");
+    expect(res.body.sweet).toHaveProperty("name", "jalebi");
   });
 
   it("restocks a sweet", async () => {

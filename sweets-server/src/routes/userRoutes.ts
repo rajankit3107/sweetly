@@ -12,7 +12,7 @@ const router = Router();
 
 router.get("/sweets", requireAuth, listSweets);
 router.get("/sweets/search", requireAuth, searchSweets);
-router.get(
+router.post(
   "/sweets/:id/purchase",
   requireAuth,
   validateBody(purchaseSchema),

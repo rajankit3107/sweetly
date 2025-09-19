@@ -13,16 +13,16 @@ beforeAll(async () => {
   await mongoose.connect(uri, {});
 });
 
-afterAll(async () => {
-  await mongoose.disconnect();
-  if (mongo) await mongo.stop();
-});
-
-afterAll(async () => {
+afterEach(async () => {
   const collections = await mongoose.connection.db?.collections();
   if (!collections) return;
 
   for (const coll of collections) {
     await coll.deleteMany({});
   }
+});
+
+afterAll(async () => {
+  await mongoose.disconnect();
+  if (mongo) await mongo.stop();
 });

@@ -8,9 +8,7 @@ import { getEnv } from "../utils/getEnv";
 const JWT_SECRET = getEnv("JWT_SECRET");
 
 function tokenFor(id: string, username: string, role: string = "user") {
-  return jwt.sign({ id: id.toString(), username, role }, JWT_SECRET, {
-    expiresIn: "1h",
-  });
+  return jwt.sign({ id, username, role }, JWT_SECRET, { expiresIn: "1h" });
 }
 
 describe("User Routes", () => {
@@ -34,7 +32,9 @@ describe("User Routes", () => {
       price: 20,
       quantity: 10,
     });
-    const res = await request(app).get("/api/user/sweets");
+    const res = await request(app)
+      .get("/api/user/sweets")
+      .set("Authorization", `Bearer ${userToken}`);
     expect(res.status).toBe(200);
     expect(Array.isArray(res.body)).toBe(true);
   });
