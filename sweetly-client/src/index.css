@@ -1,0 +1,162 @@
+/* Import minimalist fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* base overrides */
+body {
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  @apply antialiased text-slate-800;
+  background: #fdf6e3;
+  background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="30" cy="30" r="1.5" fill="%23fbbf24" fill-opacity="0.08"/%3E%3C/svg%3E');
+  background-attachment: fixed;
+  background-size: 60px 60px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 100vh;
+}
+
+/* Diwali Minimalist Theme */
+:root {
+  --gradient-primary: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --gradient-secondary: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  --gradient-accent: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --gradient-error: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.section-hero {
+  background: #fff;
+  border: 1px solid #fbbf24;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.08);
+}
+
+.section-hero::before {
+  display: none;
+}
+
+.diwali-decoration {
+  background: none;
+  opacity: 1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-secondary);
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid rgba(245, 158, 11, 0.5);
+  outline-offset: 2px;
+}
+
+/* Selection styles */
+::selection {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+/* Minimalist glass utilities */
+.glass, .glass-strong {
+  background: #fff;
+  border: 1px solid #fbbf24;
+  backdrop-filter: none;
+}
+
+/* Diwali animations */
+@keyframes diwali-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.6); }
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-diwali-glow {
+  animation: diwali-glow 3s ease-in-out infinite;
+}
+
+.animate-gentle-float {
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.animate-twinkle {
+  animation: twinkle 1.2s infinite ease-in-out;
+}
+.animate-twinkle.delay-1 {
+  animation-delay: 0.6s;
+}
+
+@keyframes firecracker-float {
+  0%, 100% { transform: translateY(0) rotate(-10deg); }
+  50% { transform: translateY(-18px) rotate(10deg); }
+}
+.animate-firecracker {
+  animation: firecracker-float 2.2s infinite ease-in-out;
+}
+@keyframes firecracker-float2 {
+  0%, 100% { transform: translateY(0) rotate(8deg); }
+  50% { transform: translateY(-12px) rotate(-8deg); }
+}
+.animate-firecracker2 {
+  animation: firecracker-float2 1.7s infinite ease-in-out;
+}
+@keyframes firecracker-float3 {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.15); }
+}
+.animate-firecracker3 {
+  animation: firecracker-float3 2.5s infinite ease-in-out;
+}
+
+/* Minimalist utilities */
+.minimal-card {
+  background: #fff;
+  border: 1px solid #fbbf24;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.08);
+  transition: all 0.3s ease;
+}
+
+.minimal-card:hover {
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.15);
+  transform: translateY(-2px);
+}
+
+.diwali-accent {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.diwali-accent:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+}
