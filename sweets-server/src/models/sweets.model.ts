@@ -43,4 +43,4 @@ const sweetSchema = new Schema<Isweets>(
   }
 );
 
-export const Sweet = mongoose.model("Sweet", sweetSchema);
+export const Sweet = mongoose.model<Isweets>("Sweet", sweetSchema);

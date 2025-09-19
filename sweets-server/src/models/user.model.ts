@@ -3,6 +3,7 @@ import mongoose, { Document, Schema } from "mongoose";
 export type Role = "user" | "admin";
 
 export interface IUser extends Document {
+  _id: mongoose.Types.ObjectId;
   username: string;
   password: string;
   role: Role;
