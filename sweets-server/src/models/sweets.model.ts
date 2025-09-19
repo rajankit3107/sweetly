@@ -3,7 +3,7 @@ import { string } from "zod";
 
 export interface Isweets extends Document {
   name: string;
-  catogery: string;
+  category: string;
   price: number;
   quantity: number;
   description?: number;
@@ -17,7 +17,7 @@ const sweetSchema = new Schema<Isweets>(
       unique: true,
     },
 
-    catogery: {
+    category: {
       type: String,
       required: true,
     },
