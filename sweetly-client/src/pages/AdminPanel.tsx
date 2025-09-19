@@ -15,7 +15,7 @@ export default function AdminPanel() {
       const res = await api.get(`/user/sweets`);
       setSweets(res.data);
     } catch (error) {
-      (window as any).appToast?.("Failed to load sweets", "error");
+      (window as any).appToast?.("Failed to load sweets", error);
     } finally {
       setLoading(false);
     }
@@ -38,7 +38,7 @@ export default function AdminPanel() {
       (window as any).appToast?.("Sweet deleted successfully", "success");
       load();
     } catch (error) {
-      (window as any).appToast?.("Failed to delete sweet", "error");
+      (window as any).appToast?.("Failed to delete sweet", error);
     }
   };
 

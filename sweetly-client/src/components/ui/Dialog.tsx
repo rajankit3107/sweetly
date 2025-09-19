@@ -1,7 +1,14 @@
-import React from "react";
 import { motion } from "framer-motion";
 
-export function Dialog({ children, open, onClose }: any) {
+export function Dialog({
+  children,
+  open,
+  onClose,
+}: {
+  children: React.ReactNode;
+  open: boolean;
+  onClose: () => void;
+}) {
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
