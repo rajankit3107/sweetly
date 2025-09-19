@@ -10,8 +10,8 @@ import {
 
 const router = Router();
 
-router.get("/sweets", requireAuth, listSweets);
-router.get("/sweets/search", requireAuth, searchSweets);
+router.get("/sweets", listSweets);
+router.get("/sweets/search", searchSweets);
 router.post(
   "/sweets/:id/purchase",
   requireAuth,

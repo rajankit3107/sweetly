@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
 import * as sweetService from "../services/sweets.services";
-import { asyncHandler } from "../utils/asyncHandler";
 
 export async function listSweets(
   _req: Request,

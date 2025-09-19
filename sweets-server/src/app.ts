@@ -6,7 +6,7 @@ import adminRoutes from "./routes/adminRoutes";
 
 const app = express();
 
-app.use(express.json());
+app.use(express.json({ type: ["application/json", "text/plain", "*/json"] }));
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/admin", adminRoutes);
