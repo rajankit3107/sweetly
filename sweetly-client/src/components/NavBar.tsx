@@ -49,6 +49,7 @@ export default function Navbar() {
         {/* Nav Links */}
         <div className="flex items-center gap-6">
           <NavLink to="/">Home</NavLink>
+          {token && <NavLink to="/orders">My Orders</NavLink>}
           {role === "admin" && <NavLink to="/admin">Admin</NavLink>}
 
           {/* Cart */}

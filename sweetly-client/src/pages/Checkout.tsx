@@ -70,13 +70,71 @@ export default function Checkout() {
   const handleSubmit = async () => {
     setLoading(true);
 
-    // Simulate order processing
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      // Prepare order data
+      const orderData = {
+        items: cart.map((item) => ({
+          sweetId: item.sweetId,
+          sweetName: item.sweetName,
+          price: item.price,
+          quantity: item.quantity,
+        })),
+        totalAmount: subtotal,
+        deliveryFee: deliveryFee,
+        finalAmount: total,
+        deliveryDetails: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          address: formData.address,
+          city: formData.city,
+          pincode: formData.pincode,
+        },
+        paymentMethod: formData.paymentMethod,
+      };
 
-    // Clear cart and show success
-    clearCart();
-    (window as any).appToast?.("Order placed successfully! 🎉", "success");
-    navigate("/");
+      // Create order via API
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/orders`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(orderData),
+        }
+      );
+
+      if (!response.ok) {
+        let errorMessage = "Failed to create order";
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorData.error || errorMessage;
+        } catch (jsonError) {
+          // If response is not JSON, use status text
+          errorMessage = `Server error: ${response.status} ${response.statusText}`;
+        }
+        throw new Error(errorMessage);
+      }
+
+      const result = await response.json();
+
+      // Clear cart and show success
+      clearCart();
+      (window as any).appToast?.("Order placed successfully! 🎉", "success");
+      navigate("/");
+    } catch (error) {
+      console.error("Order creation failed:", error);
+      (window as any).appToast?.(
+        error instanceof Error
+          ? error.message
+          : "Failed to place order. Please try again.",
+        "error"
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const containerVariants = {
