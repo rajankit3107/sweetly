@@ -44,21 +44,21 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-surface flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-amber-100 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 shadow-medium flex items-center justify-center text-white font-semibold text-2xl mx-auto mb-4">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-pink-500 shadow-lg flex items-center justify-center text-white font-semibold text-2xl mx-auto mb-4">
             🍯
           </div>
-          <h1 className="text-3xl font-display text-primary-800 mb-2">
+          <h1 className="text-3xl font-display text-slate-900 mb-2">
             Welcome to Sweetly
           </h1>
           <p className="text-slate-600">Sign in to your account</p>
         </div>
 
-        <Card className="w-full">
+        <Card className="w-full bg-white shadow-lg">
           <CardHeader className="text-center pb-4">
-            <CardTitle className="text-2xl">Sign In</CardTitle>
+            <CardTitle className="text-2xl text-slate-900">Sign In</CardTitle>
             <p className="text-slate-600">
               Enter your credentials to access your account
             </p>
@@ -98,7 +98,7 @@ export default function Login() {
                   </span>
                   <Link
                     to="/register"
-                    className="text-primary-600 hover:text-primary-700 font-semibold transition-colors"
+                    className="text-amber-600 hover:text-amber-700 font-semibold transition-colors"
                   >
                     Sign up here
                   </Link>

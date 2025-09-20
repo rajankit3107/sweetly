@@ -24,15 +24,15 @@ export default function Button({
 
   const variants = {
     primary:
-      "text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 focus-visible:ring-primary-500 shadow-soft hover:shadow-medium",
+      "text-white bg-gradient-to-r from-amber-500 to-pink-500 hover:from-amber-600 hover:to-pink-600 focus-visible:ring-amber-500 shadow-md hover:shadow-lg",
     secondary:
-      "text-primary-700 bg-primary-50 hover:bg-primary-100 focus-visible:ring-primary-500 border border-primary-200",
+      "text-slate-700 bg-slate-100 hover:bg-slate-200 focus-visible:ring-slate-500 border border-slate-200",
     success:
-      "text-white bg-gradient-to-r from-success-500 to-success-600 hover:from-success-600 hover:to-success-700 focus-visible:ring-success-500 shadow-soft hover:shadow-medium",
+      "text-white bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 focus-visible:ring-green-500 shadow-md hover:shadow-lg",
     error:
-      "text-white bg-gradient-to-r from-error-500 to-error-600 hover:from-error-600 hover:to-error-700 focus-visible:ring-error-500 shadow-soft hover:shadow-medium",
+      "text-white bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 focus-visible:ring-red-500 shadow-md hover:shadow-lg",
     warning:
-      "text-white bg-gradient-to-r from-warning-500 to-warning-600 hover:from-warning-600 hover:to-warning-700 focus-visible:ring-warning-500 shadow-soft hover:shadow-medium",
+      "text-white bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 focus-visible:ring-yellow-500 shadow-md hover:shadow-lg",
   };
 
   const sizes = {

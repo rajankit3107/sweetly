@@ -4,10 +4,14 @@ import authRoutes from "./routes/authRoutes";
 import { errorHandler } from "./middlewares/errorHandler.middleware";
 import userRoutes from "./routes/userRoutes";
 import adminRoutes from "./routes/adminRoutes";
+import cors from 'cors'
 
 const app = express();
 
 app.use(express.json({ type: ["application/json", "text/plain", "*/json"] }));
+app.use(cors({
+  origin : '*'
+}))
 
 // Rate limiting (skip during tests unless explicitly enabled)
 const enableRateLimit =

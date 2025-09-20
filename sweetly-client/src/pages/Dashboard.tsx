@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import api from "../api/axios";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
@@ -78,69 +79,137 @@ export default function Dashboard() {
         );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-amber-100">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-amber-100"
+    >
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Decorative Lights Row */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
           className="flex justify-center gap-2 mb-6 select-none"
           aria-hidden="true"
         >
           {[...Array(12)].map((_, i) => (
-            <span
+            <motion.span
               key={i}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 + i * 0.1 }}
               className={`text-2xl md:text-3xl animate-twinkle${
                 i % 2 === 0 ? " delay-1" : ""
               }`}
               style={{ animationDelay: `${(i % 4) * 0.3}s` }}
             >
               {i % 3 === 0 ? "🪔" : i % 3 === 1 ? "💡" : "🎇"}
-            </span>
+            </motion.span>
           ))}
-        </div>
+        </motion.div>
 
         {/* Hero Section */}
-        <div className="relative overflow-hidden rounded-3xl p-10 lg:p-16 mb-14 shadow-xl bg-gradient-to-br from-white via-amber-50 to-amber-100">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="relative overflow-hidden rounded-3xl p-10 lg:p-16 mb-14 shadow-xl bg-gradient-to-br from-white via-amber-50 to-amber-100"
+        >
           {/* Floating Emojis */}
-          <span className="absolute left-8 top-8 text-3xl animate-bounce-slow">
+          <motion.span
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8 }}
+            className="absolute left-8 top-8 text-3xl animate-bounce-slow"
+          >
             🎆
-          </span>
-          <span className="absolute right-12 top-16 text-2xl animate-bounce-slower">
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.0 }}
+            className="absolute right-12 top-16 text-2xl animate-bounce-slower"
+          >
             🧨
-          </span>
-          <span className="absolute left-1/2 bottom-8 text-2xl animate-bounce-slowest">
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.2 }}
+            className="absolute left-1/2 bottom-8 text-2xl animate-bounce-slowest"
+          >
             🎇
-          </span>
+          </motion.span>
 
-          <div className="relative z-10 text-center">
-            <h1 className="text-5xl lg:text-6xl font-serif font-extrabold text-slate-900 mb-6 leading-tight">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="relative z-10 text-center"
+          >
+            <motion.h1
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="text-5xl lg:text-6xl font-serif font-extrabold text-slate-900 mb-6 leading-tight"
+            >
               🪔{" "}
               <span className="bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent">
                 Diwali Sweets
               </span>
-            </h1>
-            <p className="text-lg lg:text-xl text-slate-700 mb-10 max-w-3xl mx-auto leading-relaxed">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0, duration: 0.6 }}
+              className="text-lg lg:text-xl text-slate-700 mb-10 max-w-3xl mx-auto leading-relaxed"
+            >
               Celebrate the festival of lights with{" "}
               <span className="font-semibold text-slate-900">
                 handcrafted delicacies
               </span>{" "}
               made from authentic recipes, perfect for gifting & family feasts.
-            </p>
+            </motion.p>
 
             {/* Badges */}
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <span className="px-6 py-2 bg-gradient-to-r from-amber-400 to-amber-500 text-white text-sm font-semibold rounded-full shadow-md">
-                ✨ Premium Quality
-              </span>
-              <span className="px-6 py-2 bg-gradient-to-r from-pink-400 to-pink-500 text-white text-sm font-semibold rounded-full shadow-md">
-                🏠 Handcrafted
-              </span>
-              <span className="px-6 py-2 bg-gradient-to-r from-emerald-400 to-emerald-500 text-white text-sm font-semibold rounded-full shadow-md">
-                🎉 Festive Ready
-              </span>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+              className="flex flex-wrap justify-center gap-4 mb-12"
+            >
+              {[
+                {
+                  text: "✨ Premium Quality",
+                  colors: "from-amber-400 to-amber-500",
+                },
+                { text: "🏠 Handcrafted", colors: "from-pink-400 to-pink-500" },
+                {
+                  text: "🎉 Festive Ready",
+                  colors: "from-emerald-400 to-emerald-500",
+                },
+              ].map((badge, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.4 + index * 0.1 }}
+                  className={`px-6 py-2 bg-gradient-to-r ${badge.colors} text-white text-sm font-semibold rounded-full shadow-md`}
+                >
+                  {badge.text}
+                </motion.span>
+              ))}
+            </motion.div>
 
             {/* Search + Category */}
-            <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-lg p-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.6, duration: 0.6 }}
+              className="max-w-xl mx-auto bg-white rounded-2xl shadow-lg p-6"
+            >
               <h3 className="text-xl font-bold text-slate-800 mb-6">
                 Find Your Sweet
               </h3>
@@ -181,21 +250,36 @@ export default function Dashboard() {
                   </select>
                 </div>
               )}
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
         {/* Results Section */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 0.6 }}
+          className="mb-16"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.0, duration: 0.6 }}
+            className="text-center mb-12"
+          >
             <h2 className="text-4xl font-serif font-bold text-slate-900 mb-4">
               {q ? `Search Results for "${q}"` : "Our Sweet Collection"}
             </h2>
-            <div className="inline-flex items-center px-5 py-2 bg-amber-100 text-amber-800 text-sm font-semibold rounded-full">
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 2.2, duration: 0.4 }}
+              className="inline-flex items-center px-5 py-2 bg-amber-100 text-amber-800 text-sm font-semibold rounded-full"
+            >
               {filteredSweets.length}{" "}
               {filteredSweets.length === 1 ? "item" : "items"} found
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -212,11 +296,23 @@ export default function Dashboard() {
               ))}
             </div>
           ) : filteredSweets.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {filteredSweets.map((s) => (
-                <SweetCard key={s._id} sweet={s} />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2.4, duration: 0.6 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+            >
+              {filteredSweets.map((s, index) => (
+                <motion.div
+                  key={s._id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 2.6 + index * 0.1 }}
+                >
+                  <SweetCard sweet={s} />
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           ) : (
             <div className="text-center py-20">
               <div className="text-8xl mb-8 animate-bounce-slowest">🪔</div>
@@ -241,8 +337,8 @@ export default function Dashboard() {
               )}
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import AdminPanel from "./pages/AdminPanel";
+import Checkout from "./pages/Checkout";
 import Navbar from "./components/NavBar";
 import ToastContainer from "./components/ui/ToastContainer";
 import type { JSX } from "react";
@@ -41,6 +42,14 @@ export default function App() {
               />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route
+                path="/checkout"
+                element={
+                  <Protected>
+                    <Checkout />
+                  </Protected>
+                }
+              />
               <Route
                 path="/admin"
                 element={

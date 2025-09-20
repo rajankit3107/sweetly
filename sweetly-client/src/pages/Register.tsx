@@ -22,29 +22,40 @@ export default function Register() {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      (window as any).appToast?.("Passwords do not match", "error");
+      (
+        window as typeof window & {
+          appToast?: (msg: string, type: string) => void;
+        }
+      ).appToast?.("Passwords do not match", "error");
       return;
     }
 
     if (password.length < 6) {
-      (window as any).appToast?.(
-        "Password must be at least 6 characters",
-        "error"
-      );
+      (
+        window as typeof window & {
+          appToast?: (msg: string, type: string) => void;
+        }
+      ).appToast?.("Password must be at least 6 characters", "error");
       return;
     }
 
     setLoading(true);
     try {
       await api.post(`/auth/register`, { username, password });
-      (window as any).appToast?.(
-        "Account created successfully! Please sign in.",
-        "success"
-      );
+      (
+        window as typeof window & {
+          appToast?: (msg: string, type: string) => void;
+        }
+      ).appToast?.("Account created successfully! Please sign in.", "success");
       nav("/login");
-    } catch (err: any) {
-      (window as any).appToast?.(
-        err?.response?.data?.message || "Registration failed",
+    } catch (err) {
+      const error = err as { response?: { data?: { message?: string } } };
+      (
+        window as typeof window & {
+          appToast?: (msg: string, type: string) => void;
+        }
+      ).appToast?.(
+        error?.response?.data?.message || "Registration failed",
         "error"
       );
     } finally {
@@ -53,21 +64,23 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-surface flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-amber-100 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 shadow-medium flex items-center justify-center text-white font-semibold text-2xl mx-auto mb-4">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-pink-500 shadow-lg flex items-center justify-center text-white font-semibold text-2xl mx-auto mb-4">
             🍯
           </div>
-          <h1 className="text-3xl font-display text-primary-800 mb-2">
+          <h1 className="text-3xl font-display text-slate-900 mb-2">
             Join Sweetly
           </h1>
           <p className="text-slate-600">Create your account to get started</p>
         </div>
 
-        <Card className="w-full">
+        <Card className="w-full bg-white shadow-lg">
           <CardHeader className="text-center pb-4">
-            <CardTitle className="text-2xl">Create Account</CardTitle>
+            <CardTitle className="text-2xl text-slate-900">
+              Create Account
+            </CardTitle>
             <p className="text-slate-600">
               Fill in your details to create your account
             </p>
@@ -119,7 +132,7 @@ export default function Register() {
                   </span>
                   <Link
                     to="/login"
-                    className="text-primary-600 hover:text-primary-700 font-semibold transition-colors"
+                    className="text-amber-600 hover:text-amber-700 font-semibold transition-colors"
                   >
                     Sign in here
                   </Link>

@@ -84,6 +84,21 @@ body {
   backdrop-filter: none;
 }
 
+/* Cart drawer specific styles */
+.cart-drawer {
+  background: #ffffff !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+}
+
+/* Ensure cart drawer is completely opaque */
+[data-cart-drawer] {
+  background: #ffffff !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  isolation: isolate !important;
+}
+
 /* Diwali animations */
 @keyframes diwali-glow {
   0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); }
