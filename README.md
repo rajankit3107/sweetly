@@ -493,6 +493,24 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Icons**: Emoji-based for universal compatibility
 - **Animations**: Framer Motion for smooth interactions
 
+## 🤖 My AI Usage
+
+### Which AI tools were used
+
+- **GitHub Copilot**
+- **ChatGPT (OpenAI GPT-4)**
+- **Claude (Anthropic)**
+
+### How AI tools were used
+
+- **GitHub Copilot**: Used for code completion, boilerplate generation, and inline code suggestions while writing both backend and frontend code. It helped speed up repetitive coding tasks and provided quick syntax corrections.
+- **ChatGPT (OpenAI GPT-4)**: Used for brainstorming API endpoint structures, debugging TypeScript errors, generating documentation, and getting explanations for complex code or error messages. Also used to draft commit messages and improve code comments.
+- **Claude (Anthropic)**: Used for code review suggestions, generating alternative implementations, and providing feedback on architectural decisions. Also contributed to some commit messages as a co-author.
+
+### Reflection on AI impact
+
+AI tools significantly accelerated the development process by reducing time spent on boilerplate, debugging, and documentation. They enabled rapid prototyping and provided instant feedback on code quality and best practices. However, careful human review was always applied to ensure correctness, security, and maintainability. The combination of multiple AI assistants led to a more robust and well-documented codebase, while freeing up time for creative problem-solving and design.
+
 ---
 
 **Made with ❤️ for Diwali celebrations** 🪔✨
