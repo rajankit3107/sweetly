@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 import api from "../api/axios";
 
 interface OrderItem {
@@ -65,7 +71,7 @@ export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
   const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const fetchOrders = async (page: number = 1) => {
+  const fetchOrders = useCallback(async (page: number = 1) => {
     setLoading(true);
     setError(null);
 
@@ -84,7 +90,7 @@ export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   const refreshOrders = async () => {
     await fetchOrders(currentPage);
@@ -100,7 +106,7 @@ export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
     if (token) {
       fetchOrders();
     }
-  }, []);
+  }, [fetchOrders]);
 
   const value: OrderContextType = {
     orders,
