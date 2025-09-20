@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Card,
@@ -13,48 +13,6 @@ declare global {
   interface Window {
     appToast?: (message: string, type: string) => void;
   }
-}
-
-interface OrderItem {
-  sweetId: string;
-  sweetName: string;
-  price: number;
-  quantity: number;
-}
-
-interface Order {
-  _id: string;
-  items: OrderItem[];
-  totalAmount: number;
-  deliveryFee: number;
-  finalAmount: number;
-  deliveryDetails: {
-    name: string;
-    email: string;
-    phone: string;
-    address: string;
-    city: string;
-    pincode: string;
-  };
-  paymentMethod: string;
-  status:
-    | "pending"
-    | "confirmed"
-    | "preparing"
-    | "out_for_delivery"
-    | "delivered"
-    | "cancelled";
-  orderDate: string;
-  deliveryDate?: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-interface OrderResponse {
-  orders: Order[];
-  totalOrders: number;
-  totalPages: number;
-  currentPage: number;
 }
 
 const statusConfig = {
@@ -97,13 +55,11 @@ const paymentMethodConfig = {
 };
 
 export default function PurchaseHistory() {
-  const { orders, loading, error, totalPages, currentPage, fetchOrders } =
-    useOrders();
-  const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
+  const { orders, loading, totalPages, currentPage, fetchOrders } = useOrders();
 
   useEffect(() => {
     fetchOrders();
-  }, []);
+  }, [fetchOrders]);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-IN", {

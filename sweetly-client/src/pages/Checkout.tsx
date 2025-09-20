@@ -111,14 +111,15 @@ export default function Checkout() {
         try {
           const errorData = await response.json();
           errorMessage = errorData.message || errorData.error || errorMessage;
-        } catch (jsonError) {
+        } catch (err) {
+          console.log(err);
           // If response is not JSON, use status text
           errorMessage = `Server error: ${response.status} ${response.statusText}`;
         }
         throw new Error(errorMessage);
       }
 
-      const result = await response.json();
+      await response.json();
 
       // Clear cart and show success
       clearCart();

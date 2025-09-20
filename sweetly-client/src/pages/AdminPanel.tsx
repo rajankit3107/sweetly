@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import api from "../api/axios";
 import SweetForm from "../components/SweetForm";
 import Button from "../components/ui/Button";
