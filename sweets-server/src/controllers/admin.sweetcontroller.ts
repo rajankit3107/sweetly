@@ -7,13 +7,16 @@ export async function createSweet(
   next: NextFunction
 ) {
   try {
-    const { name, category, price, quantity, description } = req.body;
+    const { name, category, price, quantity, description, imageUrl, imageAlt } =
+      req.body;
     const sweet = await sweetService.createSweet({
       name,
       category,
       price,
       quantity,
       description,
+      imageUrl,
+      imageAlt,
     });
 
     return res.status(201).json({ sweet });

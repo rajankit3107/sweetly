@@ -6,6 +6,8 @@ export const createSweetSchema = z.object({
   price: z.number().min(0),
   quantity: z.number().int().min(0),
   description: z.string().optional(),
+  imageUrl: z.string().optional(),
+  imageAlt: z.string().optional(),
 });
 
 export const updateSweetSchema = z.object({
@@ -14,6 +16,8 @@ export const updateSweetSchema = z.object({
   price: z.number().min(0).optional(),
   quantity: z.number().int().min(0).optional(),
   description: z.string().optional(),
+  imageUrl: z.string().optional(),
+  imageAlt: z.string().optional(),
 });
 
 export const purchaseSchema = z.object({
