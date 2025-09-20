@@ -22,7 +22,7 @@ const enableRateLimit =
 if (enableRateLimit) {
   const apiLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
-    limit: 50,
+    limit: 100,
     standardHeaders: true,
     legacyHeaders: false,
     message: { message: "Too many requests, please try again later." },
@@ -30,7 +30,7 @@ if (enableRateLimit) {
 
   const authLimiter = rateLimit({
     windowMs: 5 * 60 * 1000,
-    limit: 20,
+    limit: 100,
     standardHeaders: true,
     legacyHeaders: false,
     message: { message: "Too many auth attempts, please try again later." },
