@@ -16,7 +16,7 @@ interface Sweet {
   price: number;
   quantity: number;
   description?: string;
-  imageUrl?: string;
+  imageUrl?: string; // <- provided via input box
   imageAlt?: string;
 }
 
@@ -33,28 +33,26 @@ export default function SweetCard({ sweet }: SweetCardProps) {
     window.appToast?.("Added to cart!", "success");
   };
 
-  // Default sweet images based on category
+  // Default sweet images
   const getDefaultImage = (category: string) => {
     const categoryImages: { [key: string]: string } = {
-      mithai:
-        "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center",
-      laddu:
-        "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop&crop=center",
-      barfi:
-        "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center",
-      "gulab jamun":
-        "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop&crop=center",
-      rasgulla:
-        "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center",
-      "kaju katli":
-        "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop&crop=center",
-      default:
-        "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center",
+      mithai: "https://via.placeholder.com/400x300?text=Mithai",
+      laddu: "https://via.placeholder.com/400x300?text=Laddu",
+      barfi: "https://via.placeholder.com/400x300?text=Barfi",
+      "gulab jamun": "https://via.placeholder.com/400x300?text=Gulab+Jamun",
+      rasgulla: "https://via.placeholder.com/400x300?text=Rasgulla",
+      "kaju katli": "https://via.placeholder.com/400x300?text=Kaju+Katli",
+      default: "https://via.placeholder.com/400x300?text=Sweet",
     };
     return categoryImages[category.toLowerCase()] || categoryImages["default"];
   };
 
-  const imageUrl = sweet.imageUrl || getDefaultImage(sweet.category);
+  // ✅ Prefer the URL from backend/form input
+  const imageUrl =
+    sweet.imageUrl && sweet.imageUrl.trim().length > 0
+      ? sweet.imageUrl
+      : getDefaultImage(sweet.category);
+
   const imageAlt = sweet.imageAlt || `${sweet.name} - ${sweet.category}`;
 
   return (

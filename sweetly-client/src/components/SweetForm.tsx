@@ -39,6 +39,8 @@ export default function SweetForm({ reload, edit, onClear }: SweetFormProps) {
       setDescription(edit.description || "");
       setImageUrl(edit.imageUrl || "");
       setImageAlt(edit.imageAlt || "");
+    } else {
+      resetForm();
     }
   }, [edit]);
 
@@ -63,14 +65,7 @@ export default function SweetForm({ reload, edit, onClear }: SweetFormProps) {
         (window as any).appToast?.("Sweet created successfully!", "success");
       }
 
-      // Reset form
-      setName("");
-      setCategory("");
-      setPrice(0);
-      setQuantity(0);
-      setDescription("");
-      setImageUrl("");
-      setImageAlt("");
+      resetForm();
       onClear?.();
       reload?.();
     } catch (err: any) {
