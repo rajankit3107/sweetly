@@ -8,29 +8,29 @@ Sweetly is a complete e-commerce solution designed specifically for Diwali celeb
 
 ## 📸 Screenshots
 
-### User Registration & Authentication
+### Home Page
 
-![User Registration](https://github.com/user-attachments/assets/sweetly-register.png)
-_Clean and intuitive registration form with festive branding and smooth user experience_
+![Home Page](screenshots/Screenshot 2025-09-21 at 11.05.04 AM.png)
+_A vibrant hero section with Diwali sweets and search functionality_
 
-### Hero Section & Product Discovery
+### User Registration
 
-![Hero Section](https://github.com/user-attachments/assets/sweetly-hero.png)
-_Beautiful hero section showcasing traditional Diwali sweets with search functionality_
+![User Registration](screenshots/register.png)
+_Clean and intuitive registration form with festive branding_
 
 ### Product Catalog
 
-![Product Catalog](https://github.com/user-attachments/assets/sweetly-products.png)
+![Product Catalog](screenshots/products.png)
 _Responsive product grid displaying sweet varieties with pricing and availability_
 
-### Order Management - Customer View
+### Purchase History
 
-![Purchase History](https://github.com/user-attachments/assets/sweetly-orders.png)
+![Purchase History](screenshots/purchase-history.png)
 _Comprehensive order tracking system with detailed purchase history_
 
-### Admin Dashboard - Order Management
+### Admin Panel - Order Management
 
-![Admin Orders](https://github.com/user-attachments/assets/sweetly-admin.png)
+![Admin Orders](screenshots/admin-panel.png)
 _Powerful admin interface for managing orders, inventory, and customer information_
 
 ## 🏗️ Architecture
