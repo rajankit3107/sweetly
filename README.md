@@ -8,6 +8,10 @@ Sweetly is a complete e-commerce solution designed specifically for Diwali celeb
 
 ## 📸 Screenshots
 
+### Page Speed Insights
+
+![Page Insights](screenshots/page-insights.png)
+
 ### Home Page
 
 ![Home Page](screenshots/home.png)
