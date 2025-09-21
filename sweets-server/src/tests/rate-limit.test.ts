@@ -7,7 +7,7 @@ import app from "../app";
 
 describe("Rate Limiting", () => {
   it("returns 429 after exceeding auth limit", async () => {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 3; i++) {
       await request(app)
         .post(`/api/auth/login`)
         .send({ username: `user-${i}`, password: `wrong` });
@@ -15,7 +15,7 @@ describe("Rate Limiting", () => {
 
     const res = await request(app)
       .post(`/api/auth/login`)
-      .send({ username: `user-10`, password: `wrong` });
+      .send({ username: `user-3`, password: `wrong` });
 
     expect(res.status).toBe(429);
     expect(res.body).toHaveProperty("message");

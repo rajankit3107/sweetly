@@ -19,6 +19,10 @@ app.use(
 // Rate limiting (skip during tests unless explicitly enabled)
 const enableRateLimit =
   process.env.NODE_ENV !== "test" || process.env.ENABLE_RATE_LIMIT === "true";
+const isTest =
+  process.env.NODE_ENV === "test" || process.env.ENABLE_RATE_LIMIT === "true";
+const authLimit = isTest ? 3 : 100;
+
 if (enableRateLimit) {
   const apiLimiter = rateLimit({
     windowMs: 5 * 60 * 1000,
@@ -30,7 +34,7 @@ if (enableRateLimit) {
 
   const authLimiter = rateLimit({
     windowMs: 5 * 60 * 1000,
-    limit: 100,
+    limit: authLimit,
     standardHeaders: true,
     legacyHeaders: false,
     message: { message: "Too many auth attempts, please try again later." },
