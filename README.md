@@ -6,6 +6,33 @@ A full-stack e-commerce application for ordering traditional Diwali sweets, buil
 
 Sweetly is a complete e-commerce solution designed specifically for Diwali celebrations, offering a seamless shopping experience for customers and comprehensive management tools for administrators. The platform showcases traditional Indian sweets with an elegant, festive-themed interface.
 
+## 📸 Screenshots
+
+### User Registration & Authentication
+
+![User Registration](https://github.com/user-attachments/assets/sweetly-register.png)
+_Clean and intuitive registration form with festive branding and smooth user experience_
+
+### Hero Section & Product Discovery
+
+![Hero Section](https://github.com/user-attachments/assets/sweetly-hero.png)
+_Beautiful hero section showcasing traditional Diwali sweets with search functionality_
+
+### Product Catalog
+
+![Product Catalog](https://github.com/user-attachments/assets/sweetly-products.png)
+_Responsive product grid displaying sweet varieties with pricing and availability_
+
+### Order Management - Customer View
+
+![Purchase History](https://github.com/user-attachments/assets/sweetly-orders.png)
+_Comprehensive order tracking system with detailed purchase history_
+
+### Admin Dashboard - Order Management
+
+![Admin Orders](https://github.com/user-attachments/assets/sweetly-admin.png)
+_Powerful admin interface for managing orders, inventory, and customer information_
+
 ## 🏗️ Architecture
 
 The project follows a modern full-stack architecture with clear separation of concerns:
