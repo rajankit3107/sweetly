@@ -418,8 +418,6 @@ npm run build
 PORT=3000
 NODE_ENV=production
 MONGO_URL=your-production-mongodb-url
-ADMIN_USERNAME = anxit0731
-ADMIN_PASSWORD = adminpassword
 ```
 
 **Frontend:**
