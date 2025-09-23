@@ -12,7 +12,9 @@ const app = express();
 app.use(express.json({ type: ["application/json", "text/plain", "*/json"] }));
 app.use(
   cors({
-    origin: "*",
+    origin: "https://ankit-sweets.vercel.app ",
+    credentials: true,
+    methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
   })
 );
 
