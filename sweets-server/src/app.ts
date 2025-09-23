@@ -9,15 +9,16 @@ import cors from "cors";
 
 const app = express();
 
+app.options("*", cors());
 app.use(express.json({ type: ["application/json", "text/plain", "*/json"] }));
 app.use(
   cors({
     origin: "https://ankit-sweets.vercel.app",
     credentials: true,
     methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-app.options("*", cors());
 
 // Rate limiting (skip during tests unless explicitly enabled)
 const enableRateLimit =
