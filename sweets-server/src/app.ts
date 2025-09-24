@@ -9,6 +9,7 @@ import cors from "cors";
 
 const app = express();
 
+app.options("/", cors());
 app.use(express.json({ type: ["application/json", "text/plain", "*/json"] }));
 app.use(
   cors({
@@ -18,7 +19,6 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-app.options(/.*/, cors());
 
 // Rate limiting (skip during tests unless explicitly enabled)
 const enableRateLimit =
