@@ -6,7 +6,7 @@ import SweetCard from "../components/SweetCard";
 import AdminOrders from "../components/AdminOrders";
 
 export default function AdminPanel() {
-  const [sweets, setSweets] = useState<any[]>([]);
+  const [sweets, setSweets] = useState<string[]>([]);
   const [edit, setEdit] = useState<any | null>(null);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<"sweets" | "orders">("sweets");
@@ -17,7 +17,7 @@ export default function AdminPanel() {
       const res = await api.get(`/user/sweets`);
       setSweets(res.data);
     } catch (error) {
-      (window as any).appToast?.("Failed to load sweets", error);
+      (window as Window).appToast?.("Failed to load sweets", error as string);
     } finally {
       setLoading(false);
     }
@@ -37,10 +37,10 @@ export default function AdminPanel() {
 
     try {
       await api.delete(`/admin/sweets/${id}`);
-      (window as any).appToast?.("Sweet deleted successfully", "success");
+      window.appToast?.("Sweet deleted successfully", "success");
       load();
     } catch (error) {
-      (window as any).appToast?.("Failed to delete sweet", error);
+      (window as Window).appToast?.("Failed to delete sweet", error as string);
     }
   };
 

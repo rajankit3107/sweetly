@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { Isweets, Sweet } from "../models/sweets.model";
+import { ApiError } from "../utils/apiError";
 
 export async function createSweet(data: Partial<Isweets>) {
   return Sweet.create(data);
@@ -46,6 +47,8 @@ export async function purchaseSweet(id: string, qty: number) {
     err.status = 400;
     throw err;
   }
+  if (sweet.quantity < qty)
+    throw ApiError.badRequest("cannot purchase, stock is low");
   sweet.quantity -= qty;
   await sweet.save();
   return sweet;

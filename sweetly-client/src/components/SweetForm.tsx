@@ -59,17 +59,17 @@ export default function SweetForm({ reload, edit, onClear }: SweetFormProps) {
 
       if (edit) {
         await api.put(`/admin/sweets/${edit._id}`, sweetData);
-        (window as any).appToast?.("Sweet updated successfully!", "success");
+        window.appToast?.("Sweet updated successfully!", "success");
       } else {
         await api.post(`/admin/sweets`, sweetData);
-        (window as any).appToast?.("Sweet created successfully!", "success");
+        window.appToast?.("Sweet created successfully!", "success");
       }
 
       resetForm();
       onClear?.();
       reload?.();
     } catch (err: any) {
-      (window as any).appToast?.(
+      (window as Window).appToast?.(
         err?.response?.data?.message || "Operation failed",
         "error"
       );

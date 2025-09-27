@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import * as sweetService from "../services/sweets.services";
+import { ApiError } from "../utils/apiError";
 
 export async function listSweets(
   _req: Request,
@@ -20,7 +21,7 @@ export async function searchSweets(
   next: NextFunction
 ) {
   try {
-    const { name, category, minPrice, maxPrice } = req.query;
+    const { name, category, minPrice, maxPrice, quantity } = req.query;
     const result = await sweetService.searchSweets({
       name: name as string,
       category: category as string,
@@ -42,6 +43,7 @@ export async function purchaseSweets(
   try {
     const qty = Number(req.body.quantity) || 1;
     const sweet = await sweetService.purchaseSweet(req.params.id, qty);
+
     res.json(sweet);
   } catch (error) {
     next(error);

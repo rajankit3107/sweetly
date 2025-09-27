@@ -142,6 +142,7 @@ export default function SweetCard({ sweet }: SweetCardProps) {
                   : "bg-gradient-to-r from-amber-500 to-pink-500 hover:from-amber-600 hover:to-pink-600 text-white shadow-md hover:shadow-lg"
               }`}
             >
+              {sweet.quantity < 5 ? "Hurry Up! Only {sweet.quantity} left" : ""}
               {sweet.quantity === 0 ? "Sold Out" : "Add to Cart"}
             </Button>
           </motion.div>

@@ -87,7 +87,7 @@ export default function Dashboard() {
           `/user/sweets/search?name=${encodeURIComponent(q)}`
         );
         if (Array.isArray(res.data)) {
-          setSuggestions(res.data.map((s: any) => s.name));
+          setSuggestions(res.data.map((s: Sweet) => s.name));
           setShowSuggestions(true);
         }
       } catch {
